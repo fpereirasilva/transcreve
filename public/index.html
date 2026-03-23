@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcreve - WhatsApp Audio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Transcreve</h1>
+      <p class="subtitle">Transcrição automática de áudios do WhatsApp</p>
+    </header>
+
+    <!-- QR Code Section -->
+    <section id="qr-section" class="card">
+      <div id="qr-loading" class="qr-placeholder">
+        <div class="spinner"></div>
+        <p>Gerando QR Code...</p>
+      </div>
+      <img id="qr-img" alt="QR Code" style="display:none">
+      <p class="qr-hint">Abra o WhatsApp &gt; Dispositivos conectados &gt; Conectar dispositivo</p>
+    </section>
+
+    <!-- Connected Section -->
+    <section id="connected-section" class="card" style="display:none">
+      <div class="status-connected">
+        <span class="status-dot"></span>
+        <span>Conectado</span>
+      </div>
+      <p class="phone-number" id="phone-number"></p>
+    </section>
+
+    <!-- Disconnected Section -->
+    <section id="disconnected-section" class="card" style="display:none">
+      <div class="status-disconnected">
+        <span class="status-dot-off"></span>
+        <span>Desconectado</span>
+      </div>
+      <p>Reconectando...</p>
+    </section>
+
+    <!-- Transcriptions -->
+    <section id="transcriptions-section">
+      <h2 id="transcriptions-title" style="display:none">Transcrições</h2>
+      <div id="transcriptions"></div>
+      <p id="empty-state" class="empty-state" style="display:none">
+        Aguardando mensagens de áudio...
+      </p>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
